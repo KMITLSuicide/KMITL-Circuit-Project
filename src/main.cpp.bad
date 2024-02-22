@@ -1,0 +1,39 @@
+// #include <Arduino.h>
+
+// int LDRDigitalPin = 12;
+// int MoistureDigitalPin = 13;
+// int LDRAnalogPin = 35;
+// int MoistureAnalogPin = 34;
+
+// void setup() {
+//   // put your setup code here, to run once:
+//   Serial.begin(115200);
+
+//   pinMode(MoistureDigitalPin, INPUT);
+//   pinMode(MoistureAnalogPin, INPUT);
+
+//   pinMode(LDRDigitalPin, INPUT);
+//   pinMode(LDRAnalogPin, INPUT);
+// }
+
+// void loop() {
+//   // put your main code here, to run repeatedly:
+//   int MoistureAnalogStatus = analogRead(MoistureAnalogPin);
+//   int MoistureDigitalStatus = digitalRead(MoistureDigitalPin);
+//   int ldrAnalogStatus = analogRead(LDRAnalogPin);
+//   int ldrdigitalStatus = digitalRead(LDRDigitalPin);
+
+//   Serial.print("LDR Analog: ");
+//   Serial.println(ldrAnalogStatus);
+//   Serial.print("LDR Digital: ");
+//   Serial.println(ldrdigitalStatus);
+
+//   Serial.print("Moisture Analog: ");
+//   Serial.println(MoistureAnalogStatus);
+//   Serial.print("Moisture Digital: ");
+//   Serial.println(MoistureDigitalStatus);
+
+//   Serial.println("----------------------------------------------");
+
+//   delay(500);
+// }

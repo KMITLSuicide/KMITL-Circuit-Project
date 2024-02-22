@@ -1,0 +1,37 @@
+#include "Arduino.h"
+#include "uSevenSegmentLib.h"
+
+int pins[8] = {17, 18, 5, 2, 4, 19, 16, 15};
+int muxes[2] = {22, 23};
+
+uSevenSegmentLib sevenSegments(2, pins, muxes, 40, false);
+bool led_status = true;
+
+
+int i = 0;
+int sec = 0;
+int minute = 0;
+
+void setup() {
+	delay (2000);
+	pinMode(LED_BUILTIN, OUTPUT);
+	digitalWrite(LED_BUILTIN, led_status);
+
+	sevenSegments.set(i);
+	sevenSegments.attachInterrupt();
+}
+
+
+
+void loop() {
+	delay(1000);
+    sec = sec + 1;
+    if(sec >= 60){
+        minute = minute + 1;
+        sec = 0;
+    }
+    sevenSegments.set(minute);
+	// i = (i + 1) % 256;
+	// sevenSegments.set(i);
+	// Serial.println((unsigned int) i);
+}

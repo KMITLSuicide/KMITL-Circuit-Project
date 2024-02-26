@@ -1,11 +1,15 @@
 #include <Arduino.h>
-
 #include "uSevenSegmentLib.h"
 
-int LDRDigitalPin = 25;
+#define HAVE_LIGHT 0
+#define NO_LIGHT 1
+#define MOIST_SOIL 0
+#define DRY_SOIL 1
+
+int LDRAnalogPin = 13;
+int LDRDigitalPin = 12;
+int MoistureAnalogPin = 14;
 int MoistureDigitalPin = 33;
-int LDRAnalogPin = 27;
-int MoistureAnalogPin = 26;
 int motorPin = 32;
 
 const int waterSec = 2000;
@@ -80,7 +84,7 @@ void loop() {
 
 
     if (detectSec % 5 == 0) {
-        if (MoistureDigitalStatus == 1 && ldrdigitalStatus == 0) {
+        if (MoistureDigitalStatus == DRY_SOIL && ldrdigitalStatus == HAVE_LIGHT) {
             digitalWrite(motorPin, HIGH);
             delay(waterSec);
             digitalWrite(motorPin, LOW);
